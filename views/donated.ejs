@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= type %> complete!</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="ejs.min.js"></script>
+    <style>
+      .t{
+        padding-top: 15%;
+        text-align: center;
+      }
+
+      hr{
+        color: black;
+      }
+    </style>
+
+      <%- include('./navbar_style') %>
+      <%- include('./header') %>
+  </head>
+  <body>
+    <div class="container t">
+      <% if(type == "Donation") { %>
+        <h1>Thank You for Donating</h1>
+        <hr>
+      <% } %>
+      <% if(type == "Sponsorship") { %>
+        <h1>Thank You for Sponsoring</h1>
+        <hr>
+      <% } %>
+    </div>
+              You will be redirected in 3 seconds...
+    <script>
+      var timeout = 3000;
+
+      setTimeout(function () {
+         window.location = "http://localhost:3000/";
+      }, timeout);
+  </script>
+  </body>
+</html>

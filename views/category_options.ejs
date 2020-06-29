@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="ejs.min.js"></script>
+
+      <%- include('./navbar_style') %>
+
+    <style>
+
+      body{
+        background-size: cover;
+        background-position: center;
+        font-family: 'lato', sans-serif;
+        padding-bottom: 10%;
+        background-color: beige;
+        font-weight: 400;
+        font-size: 18px;
+      }
+
+      .x {
+        text-align: center;
+        margin-left: 450px;
+        padding-top: 200px;
+        margin-right: 500px;
+      }
+
+      .y{
+        margin-bottom : 1px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+      <%- include('./navbar') %>
+
+      <div class="">
+        <li class="nav-item dropdown active hov">
+          <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/education">Education</a>
+              <a class="dropdown-item" href="/health">Health</a>
+              <a class="dropdown-item" href="/women">Women</a>
+              <a class="dropdown-item" href="/cancercare">Cancer Care</a>
+              <a class="dropdown-item" href="/children">Children</a>
+              <a class="dropdown-item" href="/differentlyabled">Differently Abled</a>
+          </div>
+        </li>
+
+      </div>
+
+
+
+  </body>
+</html>
