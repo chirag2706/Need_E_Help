@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="ejs.min.js"></script>
+
+    <style>
+      .xx{
+        margin: 3% auto;
+        padding-left: 15%;
+      }
+    </style>
+
+      <%- include('./navbar_style') %>
+      <%- include('./header') %>
+  </head>
+  <body>
+    <div class="container xx">
+
+      <h1>My Donations</h1>
+
+      <% if(data == "NONE") { %>
+        <h1>No Donations Made Yet!!</h1>
+      <% } %>
+
+      <% if(data !== "NONE") { %>
+        <table border="2">
+          <thead>
+            <tr>
+              <th>Needy Name</th>
+              <th>NGO Name</th>
+              <th>NGO contact</th>
+              <th>Amount</th>
+              <th>Help-Type</th>
+              <th>Category</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+        <% data.forEach((donation)=>{ %>
+          <tbody>
+            <tr>
+              <!-- Needy Name -->
+              <td><%= donation.needyname %></td>
+
+              <!-- Ngo name -->
+              <td><%= donation.ngoname %></td>
+
+              <!-- Ngo phone no -->
+              <td><%= donation.ngoph %></td>
+
+              <!-- donation amount -->
+              <td><%= donation.amount %></td>
+
+              <!-- helptype  (Donation/sponsorship) -->
+              <td><%= donation.helptype %></td>
+
+              <!-- category (education, women, etc) -->
+              <td><%= donation.category %></td>
+
+              <!-- Date of donation -->
+              <td><%= donation.date %></td>
+              
+            </tr>
+
+          </tbody>
+        <% }); %>
+        </table>
+      <% } %>
+    </div>
+  </body>
+</html>

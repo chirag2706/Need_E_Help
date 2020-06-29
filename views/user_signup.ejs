@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="ejs.min.js"></script>
+  <%- include('./navbar_style') %>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:400,300,500);
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: beige;
+      font-size: 18px;
+      color: #222;
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+    }
+
+    *:focus {
+      outline: none;
+    }
+
+    #login-box {
+      position: relative;
+      margin: 10% auto;
+      width: 600px;
+      height: 450px;
+      background: #FFF;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      padding: 40px;
+      width: 300px;
+      height: 400px;
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      font-size: 28px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"]
+    {
+      display: block;
+
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      padding: 4px;
+      width: 220px;
+      height: 32px;
+      border: none;
+      border-bottom: 1px solid #AAA;
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus{
+      border-bottom: 2px solid #000000;
+      color: #000000;
+    }
+
+    input[type="submit"] {
+      margin-top: 25px;
+      width: 120px;
+      height: 32px;
+      background: #16a085;
+      border: none;
+      border-radius: 5px;
+      color: #FFF;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+      opacity: 0.8;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    input[type="submit"]:active {
+      opacity: 1;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    .or {
+      position: absolute;
+      top: 180px;
+      left: 280px;
+      width: 40px;
+      height: 40px;
+      background: #DDD;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      line-height: 40px;
+      text-align: center;
+    }
+
+    .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      box-sizing: border-box;
+      padding: 40px;
+      width: 300px;
+      height: 400px;
+      background: url('https://goo.gl/YbktSj');
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .right .loginwith {
+      display: block;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #FFF;
+      text-align: center;
+    }
+
+    button.social-signin {
+      margin-bottom: 20px;
+      width: 220px;
+      height: 36px;
+      border: none;
+      border-radius: 2px;
+      color: #FFF;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    button.social-signin:hover,
+    button.social-signin:focus {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    button.social-signin:active {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    button.social-signin.facebook {
+      background: #32508E;
+    }
+
+    button.social-signin.google {
+      background: #DD4B39;
+    }
+
+    .alerts{
+      margin: 5% auto;
+      position: relative;
+      width: 50%;
+      text-align: center;
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <%- include('./navbar') %>
+
+  <div class="alerts">
+    <%if (errorMessage.length>0){%>
+      <div class="alert alert-danger">
+        <strong>Error! </strong> <%=errorMessage[0]%>.
+      </div>
+    <%}%>
+
+    <%if (successMessage.length>0){%>
+      <div class="alert alert-success">
+        <strong></strong> <%=successMessage[0]%>.
+      </div>
+    <%}%>
+  </div>
+
+
+  <div id="login-box">
+
+
+    <div class="left">
+      <h1>Sign up</h1>
+      <form  method="post" action="/userSignupPost">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required >
+        <input type="password" placeholder="Password" name="password" pattern="(?-i)(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$"title="Password must have at least 8 characters with at least one Capital letter, at least one lower case letter and at least one number or special character.">
+        <input type="password" placeholder="Confirm password" name="confirmpassword" required>
+        <input type="submit" name="signupSubmit" value="Sign me up">
+      </form>
+    </div>
+
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+      <button class="social-signin facebook">Sign up with facebook</button>
+      <button class="social-signin google">Sign up with Google+</button>
+    </div>
+
+    <div class="or">OR</div>
+
+  </div>
+</body>
+</html>

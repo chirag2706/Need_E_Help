@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= data.name %> </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="ejs.min.js"></script>
+    <style>
+      .main_text{
+        padding-top: 5%;
+        text-align: center;
+      }
+
+      .main_text .side{
+        text-align: left;
+      }
+
+      h4{
+        padding-bottom: 3%;
+      }
+    </style>
+
+      <%- include('./navbar_style') %>
+      <%- include('./header') %>
+  </head>
+  <body>
+
+      <div class="container">
+        <div class="container">
+          <div class="container">
+            <div class="container">
+              <div class="container">
+                <div class="container">
+                  <div class="container">
+                    <div class="container">
+                      <div class="container">
+                        <div class="container">
+                          <div class="container">
+                            <div class="container">
+                              <div class="container">
+                                <div class="container">
+                                  <div class="container">
+
+
+
+
+<!-- col-lg-4 col-sm-6 zoom -->
+    <div class="row text-center downside" id="one" style="display:flex; flex-wrap:wrap;">
+      <% files.forEach((file)=>{%>
+
+          <% if (file.metadata.Phone === phoneNo){%>
+            <!-- <div class="zoom"> -->
+              <div class="img-thumbnail">
+                <a href="/needy?phn=<%= file.metadata.Phone %>"> <img class="img-fluid" src="/image/<%= file.filename %>"></a>
+              </div>
+            <!-- </div> -->
+          <% } %>
+
+            <!-- <h1>heading is <%= file.filename %></h1> -->
+            <!-- <img src="/image/<%= file.filename %>" alt="#"> -->
+
+      <%})%>
+    </div>
+
+<div class="main_text">
+
+        <!-- needyname -->
+        <h2><%=data.name%></h2>
+        <hr>
+
+
+    <!-- Intro (present in needypeoples db) -->
+        <h4><%=data.Intro%> </h4>
+        <hr>
+
+        <!-- needy person problem description
+         (present in needypeoplesdbdb) -->
+        <h5><%=data.aboutneedy%></h5>
+        <hr>
+
+        <h3>NGO Details</h3>
+        <!-- Things needed -->
+        <!-- ngo name -->
+
+        <div class="side">
+
+
+        <h4>Name - <%=ngodata.username%></h4>
+
+        <!-- ngo leadership -->
+        <h4>NGO Leadership - <%=ngodata.ngoleadership%></h4>
+
+
+
+        <!-- ngo area of operation -->
+        <h4>Location Of Work - <%=ngodata.locationofwork%></h4>
+
+        <!-- ngo contact  (phone, email)-->
+        <h4>Contact - <%=ngodata.phoneno%></h4>
+        <h4>Email - <%=ngodata.email%></h4>
+
+        <!-- about ngo -->
+        <h4>About Us</h4>
+        <h5><%=ngodata.aboutngo%></h5>
+
+
+
+        <!-- amount -->
+        <!-- <%=data.amount%> -->
+        <hr>
+          </div>
+
+
+    </div>
+
+    <!-- <h1><%= data.name %></h1> -->
+    <br>
+    <!-- phone no: <%= data.phoneno %><br> -->
+    <h3><%= data.HelpType %> <br></h3>
+    <h3><b>Amount collected: Rs <%= data.amount %></b></h3>
+    <% if(data.HelpType == "Donation") { %>
+        <h3>GOAL: Rs <%= data.goal %></h3>
+        <% if(user !== null && user.isUser == true && data.amount < data.goal) { %>
+          <form action="/donate?phn=<%= data.phoneno %>&usr=<%= user.username %>" method="post">
+            <input type="number" name="donation" placeholder="Enter amount to donate">
+            <button type="submit" name="submit">PAY!</button>
+          </form>
+        <% } %>
+        <% if(data.amount >= data.goal) { %>
+            <h2>GOAL ALREADY REACHED!!</h2>
+        <% } %>
+
+    <% } %>
+
+    <% if(data.HelpType == "Sponsorship") { %>
+        <h3>Goal: Rs <%= data.goal %></h3>
+        <h4>Sponsorship per month: Rs <%= data.goal/10 %></h4>
+        <% if(user !== null && user.isUser == true && data.amount < data.goal) { %>
+          <form action="/sponsor?phn=<%= data.phoneno %>&usr=<%= user.username %>" method="post">
+            <button type="submit" name="submit">SPONSOR</button>
+          </form>
+        <% } %>
+        <% if(data.amount >= data.goal) { %>
+            <h2>GOAL ALREADY REACHED!!</h2>
+        <% } %>
+    <% } %>
+
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+  </body>
+</html>

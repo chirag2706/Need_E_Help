@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Needy Registration</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+      <%- include('./navbar_style') %>
+
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background: beige;
+          font-size: 18px;
+          color: #222;
+          font-family: 'Lato', sans-serif;
+          font-weight: 400;
+        }
+
+        *:focus {
+          outline: none;
+        }
+        #id{
+          font-family: 'Lato', sans-serif;
+          font-weight: 400;
+          font-size: 15px;
+        }
+        #registration-box {
+          position: relative;
+          margin: 5% auto;
+          width: 900px;
+          height: 200 px;
+          background: #FFF;
+          border-radius: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .Registration {
+          /* position: absolute; */
+          top: 0;
+          left: 0;
+          box-sizing: border-box;
+          padding: 40px;
+          width: 100%;
+          margin-top: 30%;
+          height: 50%;
+        }
+
+        h1 {
+          padding-left: 340px;
+           margin: 0 0 20px 0;
+          font-weight: 400;
+          font-size: 28px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"]
+        {
+          /* display: block; */
+          box-sizing: border-box;
+          margin-bottom: 20px;
+          padding: 4px;
+          width: 600px;
+          height: 32px;
+          border: none;
+          border-bottom: 1px solid #AAA;
+          font-family: 'Lato', sans-serif;
+          font-weight: 400;
+          font-size: 15px;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="email"]:focus{
+          border-bottom: 2px solid #000000;
+          color: #000000;
+        }
+
+        input[type="submit"] {
+          margin-top: 25px;
+          width: 120px;
+          height: 32px;
+          background: #16a085;
+          border: none;
+          border-radius: 5px;
+          color: #FFF;
+          font-family: 'Lato', sans-serif;
+          font-weight: 500;
+          text-transform: uppercase;
+          cursor: pointer;
+          margin-left: 23%;
+        }
+
+        input[type="submit"]:hover,
+        input[type="submit"]:focus {
+          opacity: 0.8;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        input[type="submit"]:active {
+          opacity: 1;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        textarea {
+           resize: none;
+        }
+
+        textarea {
+            width: 800px;
+            height: 150px;
+            padding-right: : 40px;
+        }
+
+        .q{
+          padding-top:10px;
+          padding-bottom: 20px;
+        }
+
+        .w{
+          padding-top:10px;
+          padding-bottom:20px;
+        }
+        form{
+          margin-left: 28%;
+        }
+
+      </style>
+  </head>
+  <body>
+      <%- include('./navbar') %>
+      <div id="registration-box">
+
+        <div class="Registration">
+          <h1>Image uploading</h1>
+
+          <form action="/createImage" method="post" enctype="multipart/form-data">
+            <div>
+              <label for="photo">Upload a picture : </label>
+              <input type="file" id="photo" name="file" accept="image/png, image/jpeg" required>
+            </div>
+            <input type="submit" name="submit" value="Submit">
+          </form>
+
+        </div>
+
+      </div>
+
+  </body>
+</html>

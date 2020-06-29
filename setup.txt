@@ -1,0 +1,17 @@
+NEED E-Help is a project website which simulates an autonomous NGO donation system. NGOs can register themselves and any needys who might need help. User can also register themselves on this website and donate/sponsor to those in need accordingly. 
+There is no real transaction going on behind the scenes(just simulated) and 1 month has been scaled down to 30 seconds for immediate results.
+
+Here are the steps to get the project set up and working:
+
+1. Install nodejs and other prerequisites on your system and pick a suitable terminal like HYPER.
+
+2. Run the command 'npm install' or 'npm i' in the terminal to add all modules.
+
+3. Add username and password of a gmail account in the transporter object in index.js that you would like to use as the Need-E Help email address.
+
+4. Run the command 'node index.js' in the terminal to start the server.
+
+5. Open a browser (preferably chrome) and type in 'http://localhost:3000/' in the address bar to gain access to the website.
+
+
+You are now free to play around with all the features of the project, both from a user's and a NGO's perspective.

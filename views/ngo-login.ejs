@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="ejs.min.js"></script>
+
+  <%- include('./navbar_style') %>
+
+  <style>
+  @import url(https://fonts.googleapis.com/css?family=Lato:400,300,500);
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: beige;
+    font-size: 18px;
+    color: #222;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  #login-box {
+    position: relative;
+    margin: 10% auto;
+    width: 300px;
+    height: 350px;
+    background: #FFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .left {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+  }
+
+  h1 {
+    padding-left:60px;
+    margin: 0 0 20px 0;
+    font-weight: 400;
+    font-size: 28px;
+  }
+
+  input[type="text"],
+  input[type="password"]
+  {
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus
+  {
+    border-bottom: 2px solid #000000;
+    color: #000000;
+  }
+
+  input[type="submit"] {
+    margin-left:40px;
+    margin-top: 25px;
+    width: 120px;
+    height: 32px;
+    background: #16a085;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover,
+  input[type="submit"]:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  input[type="submit"]:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+
+  .forgot_password {
+    margin-left:40px;
+    position: absolute;
+    top : 270px;
+    left: 40px;
+    padding: 0px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .forgot_password a:link {
+    color: #357EC7;
+  }
+
+  .forgot_password a:hover {
+    color: rgba(35, 126, 199, 0.7);
+  }
+
+  .alerts{
+    margin: 5% auto;
+    position: relative;
+    width: 50%;
+    text-align: center;
+
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <%- include('./navbar') %>
+  <div class="alerts">
+    <%if (errorMessage.length>0){%>
+      <div class="alert alert-danger">
+        <strong>Error! </strong> <%=errorMessage[0]%>.
+      </div>
+    <%}%>
+
+    <%if (successMessage.length>0){%>
+      <div class="alert alert-success">
+        <strong></strong> <%=successMessage[0]%>.
+      </div>
+    <%}%>
+  </div>
+  <div id="login-box">
+
+    <div class="left">
+      <h1>Login</h1>
+
+
+
+      <form action="/ngoLoginPost" method="POST">
+        <input type="text" name="regnumber" placeholder="Reg. No" required>
+        <input type="password" placeholder="Password" name = "password" required>
+        <input type="submit" name="signupSubmit" value="Login">
+      </form>
+    </div>
+
+
+    <div class="forgot_password">
+      <a href="/userLogin/forgotPassword">Forgot Password?</a>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="ejs.min.js"></script>
+
+    <style>
+    .alerts{
+      margin: 5% auto;
+      position: relative;
+      width: 50%;
+      text-align: center;
+
+    }
+
+    </style>
+
+    <%- include('./header') %>
+    <div class="alerts">
+      <%if (errorMessage.length>0){%>
+        <div class="alert alert-danger">
+          <strong>Error! </strong> <%=errorMessage[0]%>.
+        </div>
+      <%}%>
+
+      <%if (successMessage.length>0){%>
+        <div class="alert alert-success">
+          <strong></strong> <%=successMessage[0]%>.
+        </div>
+      <%}%>
+    </div>
+    <div class="container">
+
+
+      <div class="jumbotron">
+        <h1 class="display-6">Need Help</h1>
+        <p class="lead">The best way to not feel hopeless is to get up and do something. Don’t wait for good things to happen to you. If you go out and make some good things happen, you will fill the world with hope, you will fill yourself with hope.</p>
+        <hr class="my-4">
+        <p>Help people by sponsoring and donating for the betterment of their lives.</p>
+
+
+        <% if (user!==null&&user.isUser == false){ %>
+          <a class="btn btn-outline-info btn-lg" href="/needy_registration" role="button">Add New Case</a>
+        <% } %>
+      </div>
+
+      <div class="row text-center" id="one" style="display:flex; flex-wrap:wrap;">
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+            <a href="/education"> <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/sponsor-the-college-fee-for-a-deserving-student-in-remote-villages.jpg"></a>
+             <div class="caption">
+               <h5>Education</h5>
+             </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+            <a href="/health"> <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/sponsor-the-cost-of-spectacles-for-the-underprivileged.jpg"></a>
+             <div class="caption">
+               <h5>Health</h5>
+             </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+            <a href="/women"> <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/sponsor-quality-food-for-mental-health-patients-in-the-rehabilitation-center.jpg "></a>
+             <div class="caption">
+               <h5>Women</h5>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+          <a href="/cancercare">   <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/help-poor-terminally-ill-patients-get-access-to-medical-care.jpg"></a>
+             <div class="caption">
+               <h5>Cancer Care</h5>
+             </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+            <a href="/children"> <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/sponsor-mid-day-meals-to-children-in-orissa.jpg"></a>
+             <div class="caption">
+               <h5>Children</h5>
+             </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 zoom">
+          <div class="img-thumbnail">
+            <a href="differentlyabled"> <img class="img-fluid" src="https://cdn.givind.org/static/images/program/w450/help-a-differently-abled-person-walk-independently.jpg"></a>
+             <div class="caption">
+               <h5>Differently Abled</h5>
+             </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+  </body>
+</html>

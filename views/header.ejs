@@ -1,0 +1,147 @@
+
+      <style>
+      /* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,500); */
+      body{
+        padding-top: 70px;
+        background-size: cover;
+        background-position: center;
+        font-family: 'lato', sans-serif;
+        padding-bottom: 10%;
+        background-color: beige;
+        font-size:18px;
+      }
+
+      .navbar-custom {
+          background-color: #DDD;
+      }
+
+      .navbar-custom .navbar-brand{
+          color: Black;
+      }
+
+      .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+        color: Black;
+      }
+
+      #one{
+        padding-top: 2%;
+      }
+
+      .row{
+        padding-top: 5%;
+      }
+
+      .jumbotron {
+          min-height: 1em;
+          background-color: #DDD;
+      }
+
+      .zoom {
+        box-sizing: border-box;
+        transition: transform 0.5s;
+      }
+
+      .zoom:hover {
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1);
+        border-color: black;
+          box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .hov:hover{
+        background-color: #b1b1b1;
+      }
+
+      .hove:hover{
+        opacity: 0.6;
+      }
+
+      .caption{
+        margin-top: 5%;
+      }
+
+      </style>
+  </head>
+  <body>
+
+    <!-- Footer -->
+    <nav class="navbar fixed-bottom navbar-light navbar-custom">
+    </nav>
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+      <div class="container">
+
+
+      <a class="navbar-brand hove" href="/"><i class="far fa-life-ring"></i> Need-E-Help</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active hov">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active hov">
+            <a class="nav-link" href="/about">About Us<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active hov">
+            <a class="nav-link" href="/contact">Contact<span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item dropdown active hov">
+            <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Category
+            </a>
+            <!-- Category -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/education">Education</a>
+                <a class="dropdown-item" href="/health">Health</a>
+                <a class="dropdown-item" href="/women">Women</a>
+                <a class="dropdown-item" href="/cancercare">Cancer Care</a>
+                <a class="dropdown-item" href="/children">Children</a>
+                <a class="dropdown-item" href="/differentlyabled">Differently Abled</a>
+            </div>
+          </li>
+          <!-- <li class="nav-item active hov">
+            <a class="nav-link" href="/ngo-registration">NGO Registeration<span class="sr-only">(current)</span></a>
+          </li> -->
+        </ul>
+
+
+        <!-- If the person is logged in -->
+        <% if (user!=undefined){ %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= user.username %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if (user!=undefined&&user.isUser == true){ %>
+              <!-- <a class="dropdown-item" href="/myProfile">My Profile</a> -->
+              <a class="dropdown-item" href="/myDonation?usr=<%= user.username %>">My Donations</a>
+              <% }else{ %>
+                <!-- <a class="dropdown-item" href="/ngoProfile">My Profile</a> -->
+              <% } %>
+              <a class="dropdown-item"href="/logout">Logout</a>
+            </div>
+          </li>
+        </ul>
+        <% }else{ %>
+          <!-- If Person is not logged in -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item active hove">
+              <a class="nav-link" href="/LoginOption">Login <i class="fas fa-user"></i></a>
+            </li>
+            <li class = "nav-item">
+              <a href="/SignupOption" class="btn btn-outline-success" role="button">Sign Up <i class="fas fa-user-plus"></i> </a>
+            </li>
+          </ul>
+        <% } %>
+
+      </div>
+      </div>
+    </nav>
